@@ -9,20 +9,20 @@ import Catalog from "./components/Catalog/Catalog";
 import Contact from "./components/Contact/Contact";
 import Policies from "./components/Policies/Policies";
 import NotFound from "./components/NotFound/NotFound";
+import Product from "./components/Product/Product";
 
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/catalogo" component={Catalog} />
-          <Route exact path="/contacto" component={Contact} />
-          <Route exact path="/politicas" component={Policies} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/catalogo" component={Catalog} />
+        <Route exact path="/contacto" component={Contact} />
+        <Route exact path="/politicas" component={Policies} />
+        <Route exact path="/producto/:id" component={Product} />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
