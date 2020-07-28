@@ -41,7 +41,7 @@ const Product = () => {
               <Col xs={12} md={6}>
                 <Image
                   src={
-                    product.imagen.url
+                    product.imagen
                       ? API + product.imagen.url
                       : "https://via.placeholder.com/150x100"
                   }
