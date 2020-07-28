@@ -27,20 +27,24 @@ const ContactForm = () => {
   const sendEmail = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API}/email`, {
+      await fetch(`${API}/email`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "this@website.com",
+          from: "isaias0005@gmail.com",
           to: "isaias0005@gmail.com",
-          subject: "Email test",
-          text: "Hello World",
+          subject: "Formulario de contacto - Catalogo",
+          html: `
+          <p><b>Nombre: </b>${name}</p>
+          <p><b>Apellido: </b>${lastName}</p>
+          <p><b>Email: </b>${email}</p>
+          <p><b>Teléfono: </b>${phone}</p>
+          <p><b>Mensaje: </b>${message}</p>
+          `,
         }),
       });
-      const data = await res.json();
-      console.log(data);
       setLoading(false);
     } catch (err) {
       setLoading(false);

@@ -50,7 +50,7 @@ const ProductList = ({ maxProducts, search = "", reverse }) => {
     return renderedProducts.length > 0 ? (
       renderedProducts
     ) : (
-      <h2 className="text-muted py-5">No se encuentran productos</h2>
+      <h2 className="text-muted py-5 text-center">No se encuentran productos</h2>
     );
   };
 
