@@ -10,10 +10,15 @@ const ProductList = ({ maxProducts, search = "", reverse }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await fetch(`${API}/productos`);
-      const data = await res.json();
-      setProducts(data);
-      setLoading(false);
+      try {
+        const res = await fetch(`${API}/productos`);
+        const data = await res.json();
+        setProducts(data);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        throw err;
+      }
     };
     getProducts();
   }, []);
@@ -45,7 +50,7 @@ const ProductList = ({ maxProducts, search = "", reverse }) => {
     return renderedProducts.length > 0 ? (
       renderedProducts
     ) : (
-      <h2>No se encuentran productos</h2>
+      <h2 className="text-muted py-5">No se encuentran productos</h2>
     );
   };
 

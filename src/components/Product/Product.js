@@ -13,10 +13,15 @@ const Product = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const res = await fetch(`${API}/productos/${id}`);
-      const data = await res.json();
-      setProduct(data);
-      setLoading(false);
+      try {
+        const res = await fetch(`${API}/productos/${id}`);
+        const data = await res.json();
+        setProduct(data);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        throw err;
+      }
     };
     getProduct();
   }, [id]);
@@ -33,7 +38,7 @@ const Product = () => {
             />
           ) : (
             <Row>
-              <Col>
+              <Col xs={12} md={6}>
                 <Image
                   src={
                     product.imagen.url
@@ -43,9 +48,9 @@ const Product = () => {
                   thumbnail
                 />
               </Col>
-              <Col>
+              <Col xs={12} md={6}>
                 <h1>{product.titulo}</h1>
-                <p style={{ maxWidth: "25rem" }} class="text-break">
+                <p style={{ maxWidth: "25rem" }} className="text-break">
                   {product.descripcion}
                 </p>
                 <Link to="/catalogo">Volver al catálogo.</Link>
