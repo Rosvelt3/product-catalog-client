@@ -9,7 +9,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [validated, setValidated] = useState(false);
   const [loading, setLoading] = useState(false);
-  const API = "http://localhost:1337";
+  const API = "https://product-catalog-server.herokuapp.com";
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;

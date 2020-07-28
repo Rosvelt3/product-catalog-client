@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 const ProductList = ({ maxProducts, search = "", reverse }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API = "http://localhost:1337";
+  const API = "https://product-catalog-server.herokuapp.com";
 
   useEffect(() => {
     const getProducts = async () => {

@@ -9,7 +9,7 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const API = "http://localhost:1337";
+  const API = "https://product-catalog-server.herokuapp.com";
 
   useEffect(() => {
     const getProduct = async () => {
