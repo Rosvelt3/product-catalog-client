@@ -24,9 +24,10 @@ const ProductList = ({ maxProducts, search = "", reverse }) => {
   }, []);
 
   const renderProducts = () => {
+    if (!products) return false;
+
     let filteredProducts = [...products];
 
-    if (!filteredProducts) return false;
     if (reverse) filteredProducts = filteredProducts.reverse();
 
     filteredProducts = filteredProducts
