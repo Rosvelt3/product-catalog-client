@@ -24,6 +24,7 @@ const ProductList = ({ maxProducts, search = "", reverse }) => {
   }, []);
 
   const renderProducts = () => {
+    if (!(Symbol.iterator in Object(products))) return false;
     let filteredProducts = [...products];
 
     if (reverse) filteredProducts = filteredProducts.reverse();
